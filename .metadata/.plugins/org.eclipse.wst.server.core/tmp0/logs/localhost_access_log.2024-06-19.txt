@@ -1,3 +1,6 @@
 127.0.0.1 - - [19/Jun/2024:10:38:11 +0900] "GET / HTTP/1.1" 404 807
 0:0:0:0:0:0:0:1 - - [19/Jun/2024:10:40:06 +0900] "GET / HTTP/1.1" 404 807
 0:0:0:0:0:0:0:1 - - [19/Jun/2024:10:40:06 +0900] "GET /favicon.ico HTTP/1.1" 404 818
+127.0.0.1 - - [19/Jun/2024:16:42:15 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [19/Jun/2024:16:42:15 +0900] "GET /biz/WEB-INF/classes/polymorphism/SamsungTV.java HTTP/1.1" 404 721
+0:0:0:0:0:0:0:1 - - [19/Jun/2024:16:42:26 +0900] "GET /biz/WEB-INF/classes/polymorphism/SamsungTV.java HTTP/1.1" 404 721
