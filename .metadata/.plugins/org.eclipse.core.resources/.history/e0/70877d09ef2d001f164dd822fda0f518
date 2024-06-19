@@ -1,0 +1,990 @@
+유선웅
+ysw_1208
+온라인
+
+유선웅 — 2024.03.27. 오후 12:21
+function getRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function getRandomUniqueNumbers(min, max, count) {
+    if (count > (max - min + 1)) {
+        throw new Error("Count cannot be greater than the range of numbers.");
+        // 예외처리방법
+    }
+
+    var numbers = [];
+    while (numbers.length < count) {
+        var randomNumber = getRandomNumber(min, max);
+        if (!numbers.includes(randomNumber)) {
+            numbers.push(randomNumber);
+        }
+    }
+    return numbers;
+}
+
+var uniqueNumbers = getRandomUniqueNumbers(1, 12, 2);
+console.log(uniqueNumbers);
+이수형 — 2024.04.05. 오후 12:58
+//프로젝트 초기화
+
+window.onload = function () {
+    const NumberShow = {
+        init: () => {
+            console.log("프로젝트 초기화");
+            // 숫자 표시 영역
+            const dispEl = document.createElement("div");
+            dispEl.id = "disp_id";
+            dispEl.appendChild(DisplayBox.makeDisplay());
+            // 숫자 패드 영역
+            const numPadEl = document.createElement("div");
+            numPadEl.id = "numPad_id";
+
+            for (let i = 0; i < 5; i++) {
+                const numPad = new NumPad(i + 1);
+                numPadEl.appendChild(numPad.button);
+            }
+
+
+            document.body.appendChild(dispEl);
+            document.body.appendChild(numPadEl);
+        }
+    }
+
+    NumberShow.init();
+};
+
+/디스플레이 객체/
+const DisplayBox = {
+    initValue: "",
+
+    makeDisplay: function () {
+        const dispEl = document.createElement("input");
+        dispEl.id = 'display_id';
+        return dispEl;
+    },
+
+    updateNum: function () {
+        document.getElementById('display_id').value = this.initValue;
+    },
+
+    addNum: function (num) {
+        this.initValue += String(num);
+        this.updateNum();
+    },
+}
+
+
+/숫자 객체/
+
+class NumPad {
+    constructor(num) {
+        this.num = num;
+        this.button = this.makeButton(num);
+    }
+
+    makeButton(num) {
+        const button = document.createElement("button");
+        button.id = n${num}_id;
+        const text = document.createTextNode(num);
+        button.appendChild(text);
+        button.addEventListener("click", (e) => this.handleClick(this.num));
+        return button;
+    }
+
+    handleClick(n) {
+        console.log(키보드: ${n});
+        DisplayBox.addNum(n);
+    }
+}
+유선웅 — 2024.04.09. 오후 2:45
+root.render(
+    <>
+    <FOOTball />
+    <DEsert39 />
+</>
+);
+유선웅 — 2024.04.09. 오후 4:10
+이미지
+유선웅 — 2024.04.11. 오후 2:44
+git: 'commit-m' is not a git command. See 'git --help'.
+유선웅 — 2024.04.15. 오후 2:59
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #display1,#display2{
+            width: 500px;
+            height: 300px;
+            border: 1px solid red;
+        }
+
+    #btn{
+        width: 100px;
+        height: 50px;
+    }
+    </style>
+</head>
+<body>
+
+
+    <script>
+
+        let display1=document.createElement('div');
+        let display2=document.createElement('div');
+        display1.id='display1';
+        display2.id='display2';
+        document.body.appendChild(display1);
+        document.body.appendChild(display2);
+
+        let btn=document.createElement('button');
+        btn.id='btn';
+        document.body.appendChild(btn);
+
+        let text=1;
+
+        function clickbutton() {
+            document.getElementById('btn').addEventListener('click' , function (){
+                document.getElementById('display1').innerHTML+=text;
+            })
+
+                }
+
+        // let modify='1+1=';
+        // document.getElementById('display1').innerHTML=modify;
+
+        // let result='2';
+        // document.getElementById('display2').innerHTML=result; 
+
+
+
+
+
+    </script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #display1,
+        #display2 {
+            width: 500px;
+            height: 300px;
+            border: 1px solid red;
+        }
+
+        #btn {
+            width: 100px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <script>
+
+        let display1 = document.createElement('div');
+        let display2 = document.createElement('div');
+        display1.id = 'display1';
+        display2.id = 'display2';
+        document.body.appendChild(display1);
+        document.body.appendChild(display2);
+
+        let btn = document.createElement('button');
+        btn.id = 'btn';
+        document.body.appendChild(btn);
+
+
+        function clickbutton() {
+            document.getElementById('btn').addEventListener('click', function () {
+                let text = 1;
+                document.getElementById('display1').innerHTML += text;
+            })
+        }
+        document.getElementById('btn').addEventListener('click', clickbutton);
+
+
+        // let modify='1+1=';
+        // document.getElementById('display1').innerHTML=modify;
+
+        // let result='2';
+        // document.getElementById('display2').innerHTML=result; 
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
+유선웅 — 2024.04.15. 오후 3:49
+function show() {
+            let d1=document.querySelector('#display1');
+            let d2=document.querySelector('#display2');
+            if(d1=!null && d2=!null) {
+            result=null; 
+            }
+        }
+유선웅 — 2024.04.15. 오후 4:00
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>계산기 디스플레이</title>
+    <style>
+        #display1 {
+            width: 300px;
+            height: 150px;
+            border: 1px solid red;
+        }
+
+        #display2 {
+            width: 150px;
+            height: 100px;
+            border: 1px solid blue;
+        }
+
+        #btn {
+            width: 100px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <script>
+        // 디스플레이 생성
+        let display1 = document.createElement('div');
+        let display2 = document.createElement('div');
+        display1.id = 'display1';
+        display2.id = 'display2';
+        document.body.appendChild(display1);
+        document.body.appendChild(display2);
+
+        // 버튼생성
+        let btn = document.createElement('button');
+        btn.id = 'btn';
+        document.body.appendChild(btn);
+
+        // 클릭이벤트(display1)
+        btn.addEventListener('click',function(){
+            let text=1;
+            if(d1 !== null && d2 !== null) {
+            document.getElementById('display1').innerHTML = null;
+            let up = document.querySelector('display2');
+            document.getElementById('display1').innerHTML = up;
+            document.getElementById('display2').innerHTML = null;
+            }
+            display1.innerHTML+=text;
+        })
+
+        //결과(display2)
+        let result='2';
+        document.getElementById('display2').innerHTML=result; 
+
+
+        // 함수,조건문
+        function show() {
+            let d1=document.querySelector('#display1');
+            let d2=document.querySelector('#display2');
+            // if(d1 !== null && d2 !== null) {
+            //     result=null; 
+            // }
+        }
+
+
+    </script>
+
+</body>
+
+</html>
+이수형 — 2024.04.15. 오후 4:42
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>계산기 디스플레이</title>
+    <style>
+        #display1 {
+            width: 300px;
+            height: 150px;
+            border: 1px solid red;
+        }
+
+        #display2 {
+            width: 150px;
+            height: 100px;
+            border: 1px solid blue;
+        }
+
+        #btn1, #btn2 {
+            width: 100px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+<script>
+    // 디스플레이 생성
+    let display1 = document.createElement('div');
+    let display2 = document.createElement('div');
+    display1.id = 'display1';
+    display2.id = 'display2';
+    document.body.appendChild(display1);
+    document.body.appendChild(display2);
+
+    // 버튼생성
+    let btn1 = document.createElement('button');
+    let btn2 = document.createElement('button');
+    btn1.id = 'btn1';
+    btn2.id = 'btn2';
+    document.body.appendChild(btn1);
+    document.body.appendChild(btn2);
+
+    // 클릭이벤트(display1)
+    btn1.addEventListener('click', function() {
+        let text = 1;
+
+        let d1 = display1.innerHTML;
+        let d2 = display2.innerHTML;
+
+        if (d1 !== '' && d2 !== '') {
+            let display2Text = document.getElementById('display2').innerHTML;
+            document.getElementById('display1').innerHTML = null;
+            document.getElementById('display1').innerHTML += display2Text;
+            document.getElementById('display2').innerHTML = null;
+        } else {
+            document.getElementById('display1').innerHTML += text;
+
+        }
+    })
+
+
+    btn2.addEventListener('click', function () {
+        let text2 = 2;
+        document.getElementById('display2').innerHTML += text2;
+    });
+
+
+
+
+</script>
+
+</body>
+
+</html>
+이수형 — 2024.04.16. 오후 12:12
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+이수형 — 2024.04.17. 오후 4:53
+비효율적인 로직을 개선하기 위해 디스플레이1과 디스플레이2의 값을 확인하는 작업을 매 순간이 아닌 어떤 특정한 순간에만 수행하는 방법이 있습니다. 예를 들어, 버튼을 누를 때가 아니라 연산을 수행하기 직전에 디스플레이1과 디스플레이2의 값을 확인하여 로직을 처리할 수 있습니다.
+
+여러 방법이 있겠지만, 가장 간단한 방법 중 하나는 연산을 수행하기 직전에 디스플레이1과 디스플레이2의 값을 확인하여 로직을 처리하는 것입니다. 예를 들어, 숫자나 연산자 버튼을 누를 때가 아닌 등호나 연산자 버튼을 눌렀을 때 디스플레이1과 디스플레이2의 값을 확인하여 처리할 수 있습니다.
+
+예를 들어, 등호나 연산자 버튼을 눌렀을 때 해당 함수 내에서 디스플레이1과 디스플레이2의 값을 확인하고 로직을 처리할 수 있습니다. 이렇게 하면 사용자가 버튼을 누를 때마다 값의 확인이 아니라 연산을 수행하기 직전에만 확인하게 되므로 효율적입니다.
+
+또 다른 방법으로는 사용자가 버튼을 누를 때마다 디스플레이1과 디스플레이2의 값을 저장하는 것입니다. 예를 들어, 각 버튼을 클릭할 때마다 해당 값을 변수에 저장하고, 연산을 수행하기 전에 이 변수들을 확인하여 로직을 처리할 수 있습니다.
+
+어떤 방법을 선택하느냐에 따라 코드의 구조와 효율성이 달라질 수 있으니 상황에 맞게 선택하시면 됩니다.
+이수형 — 2024.04.18. 오전 11:25
+인덱스에서 = 버튼 이벤트를 감지하면 인덱스에서 디스플레이 객체에 접근.
+디스플레이 2의 값을 인덱스로 가져와 연산 객체에 전달.
+연산 객체의 결과값을 반환 받아 다시 디스플레이객체에 접근 후 디스플레이1에 전달
+유선웅 — 2024.04.18. 오후 4:29
+첨부 파일 형식: acrobat
+6f4cf257e64be75d.pdf
+356.66 KB
+첨부 파일 형식: document
+ppt.pptx
+46.35 KB
+이수형 — 2024.04.19. 오후 12:51
+테스트 방법 문서화
+실 테스트 중 오류 사례
+
+
+1) 모든 버튼 작동 테스트
+2) 이항 연산
+3) 삼항연산
+4) 사항연산
+5) 괄호연산
+6) 비어있을 때 =기호 누르기
+테스트 방법 문서화
+실 테스트 중 오류 사례
+
+
+작동 테스트
+1) 모든 버튼 작동 테스트
+
+연산 테스트
+2) 이항 연산
+3) 삼항연산
+4) 사항연산
+5) 괄호연산
+6) 비어있을 때 =기호 누르기
+유선웅 — 2024.04.19. 오후 3:02
+테스트 및 검증
+
+1.테스트 방법 문서화
+2.실 테스트 중 오류 사례
+
+확장
+23ac0cfa1b83bb38.txt
+3KB
+이수형 — 2024.04.19. 오후 3:16
+구현 목표
+Ex) (1+2)x3+4(5+6)  <- 오류 괄호 앞에 숫자만 단독으로 붙을 수 없음
+    (1+2)x3+4x(5+6) <- 숫자 앞에 괄호를 사용할 수 없고 연산자를 붙여야만 사용 가능하게 변경.
+유선웅 — 2024.04.19. 오후 6:10
+테스트 및 검증
+
+1.테스트 방법 문서화
+2.실 테스트 중 오류 사례
+
+
+
+1.테스트 방법 문서화
+
+각각의 모듈별 테스트
+1.디스플레이
+디스플레이 화면 구현, 기능 테스트
+디스플레이가 인덱스를 통해 화면에 구현되었는지 확인하고 만든 기능이 정상적으로 
+작동하는지 확인하는 테스트를 가짐
+모든 연산버튼과 숫자버튼들을 클릭해서 원하는 결과가 디스플레이에 정상적으로 출력되는지 확인함
+
+
+2.버튼
+버튼 화면 구현, 기능 테스트
+버튼이 인덱스를 통해 화면에 구현되었는지 확인하고 만든 기능이 정상적으로 작동되는지 
+확인하는 테스트를 가짐 
+1)숫자 버튼과 연산 기호버튼들을 모두 정상적으로 클릭되는지 확인
+
+
+3.연산
+연산 기능 테스트
+연산 기능은 버튼과 연결되어 있고 버튼이 클릭되었을 때가 전제조건이기 때문에 복잡하고 어려웠음
+따라서 케이스를 나눠서 테스트해봤음
+1)괄호()를 포함해서 연산한 경우
+2)이항 연산한 경우
+3)삼항 연산한 경우
+4)...
+5)숫자()를 조합한 경우
+
+
+4.히스토리
+히스토리 화면 구현, 기능 테스트
+1)수식 결과가 히스토리에 쌓여서 출력되는지 확인
+2)여러 개의 쌓인 결과를 히스토리에 포함된 휴지통을 눌렀을 때 쌓인 결과가 모두 한번에 삭제 되었는지 확인
+
+
+
+
+
+오류 테스트
+
+각각의 모듈을 연결하고 연산했을 때 기능이 정상적으로 작동되고 화면에 구현되는지 확인하는 작업
+1)모듈을 모두 연결했을 떄여러번의 오류가 발생해  개발자 도구를 참고해 화면에 뜨는 오류를 고쳐나가고 정상적으로 작동되게 만듬
+2)모듈을 메인 인덱스에서 연결했을 때 모듈의 이름 스펠링이나 연결 경로가 잘못 지정되 오류가 발생함
+3
+
+2.실 테스트 중 오류 사례
+1)숫자뒤에 연산자기호가 들어간 후 뒤에 아무것도 숫자가 들어가지 않은 경우 =버튼을 누르면 NAN이 출력됨 (해결 안됨)
+2)괄호 안에 숫자가 들어간후 연산하면 =이라는 결과 수식이 계속해서 반복함 ex) ================= (해결)
+3)수식에  -버튼이 포함되어 있을경우만  결과가 계산이 안 되는 경우가 존재함    (해결)
+4)
+유선웅 — 2024.04.22. 오전 11:51
+디스플레이 오류 발생 및 해결 사례:
+
+함수 내에서 메서드를 이용해 dom을 형성할 때 
+각각의 구역을 차지하는 것이 있는데 구역이 큰 
+순서대로 호출해야 하는데 순서를 지키지 않았을 때 화면에 구현되지 않는 오류
+발생 
+
+ex > dis_container  안에 modify와 result가 들어가야되는데
+modify와 result를 먼저 호출하고 그 뒤에 dis_container 호출
+
+해결 사례:호출되어야 하는 순서대로 호출
+
+개선 사항 : 가독성을 높일 수 있는 변수명 사용과 주석 추가
+객체 지향 이점: 코드 재사용을 할 수 있고 코드의 수정과 추가가 쉬움
+유선웅 — 2024.04.23. 오전 9:55
+첨부 파일 형식: document
+33.pptx
+53.21 KB
+유선웅 — 2024.04.23. 오후 12:19
+document.getElementById("btn61").addEventListener("click", function () {
+        let text = display2.innerHTML;
+        if (text.length > 2) {
+            if (!text.includes("=")) { // 여기서 괄호 추가
+                text += "=";
+                display2.innerHTML = text;
+            }
+        }
+    });
+유선웅 — 2024.04.23. 오후 12:38
+const pad_box = new MakeBox("div", "pad_box", "#container")
+const main_container = new MakeBox("div", "container", "body")
+const num_button = new MakeNumButton("button", "btn", "pad_box")
+const operator_button = new MakeOperatorButton("button", "btn operate", "pad_box")
+
+const dis_container = new MakeBox("div", "dis_container", "#container")
+const modify_display = new MakeBox("div", "display2", "#dis_container");
+const result_display = new MakeBox("div", "display1", "#dis_container");
+
+
+
+function ui() {
+    main_container.make_box()
+    pad_box.make_box()
+    num_button.make_button()
+    dis_container.make_box()
+    modify_display.make_box()
+    result_display.make_box()
+    operator_button.make_operator()
+    css_set()
+}
+유선웅 — 2024.04.23. 오후 4:04
+이수형 — 2024.04.23. 오후 4:12
+유선웅 — 2024.04.23. 오후 5:40
+첨부 파일 형식: document
+bf9677d1923e1402.pptx
+9.02 MB
+이수형 — 2024.04.29. 오후 3:43
+PS E:\sooReact\newReact> npm start
+npm ERR! code ENOENT
+npm ERR! syscall open
+npm ERR! path E:\sooReact\newReact\package.json
+npm ERR! errno -4058
+npm ERR! enoent Could not read package.json: Error: ENOENT: no such file or directory, open 'E:\sooReact\newReact\package.json'
+npm ERR! enoent This is related to npm not being able to find a file.
+npm ERR! enoent 
+
+npm ERR! A complete log of this run can be found in: C:\Users\Administrator\AppData\Local\npm-cache_logs\2024-04-29T06_42_50_524Z-debug-0.log
+PS E:\sooReact\newReact>
+유선웅 — 2024.05.03. 오전 10:15
+import Carousel from 'react-bootstrap/Carousel';
+import CarouselImage from './MainBanner';
+
+function Welcome() {
+    return (
+        <Carousel>
+            <Carousel.Item>
+                <CarouselImage text="First slide" />
+                <Carousel.Caption>
+                    <h3>First slide label</h3>
+                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+                <CarouselImage text="Second slide" />
+                <Carousel.Caption>
+                    <h3>Second slide label</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+                <CarouselImage text="Third slide" />
+                <Carousel.Caption>
+                    <h3>Third slide label</h3>
+                    <p>
+                        Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                    </p>
+                </Carousel.Caption>
+            </Carousel.Item>
+        </Carousel>
+    );
+}
+
+export default Welcome;
+export default function CarouselImage({ text }) {
+    return (
+        <img
+            className="d-block w-100"
+            src="https://via.placeholder.com/800x400"
+            alt={text}
+        />
+    )
+}
+이수형 — 2024.05.03. 오후 12:34
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+확장
+message.txt
+3KB
+유선웅 — 2024.05.03. 오후 1:08
+export default function PostIdx() {
+    return (
+        <Row xs={1} md={2} className="g-4">
+            {Array.from({ length: 4 }).map((_, idx) => (
+                <Col key={idx}>
+                </Col>
+            ))}
+        </Row>
+    )
+}
+이수형 — 2024.05.07. 오전 10:21
+https://github.com/gr-fs-c410/shopping-ui.git
+유선웅 — 2024.05.14. 오후 3:36
+ return (
+        <div className="product-item" style={{ display: 'flex', alignItems: 'center', backgroundColor: '#f9f9f9', padding: '20px', borderRadius: '10px', boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)', marginBottom: '20px' }}>
+            <div className="product-image" style={{ marginRight: '20px', flexShrink: 0 }}>
+                <img
+                    src={props.image}
+                    alt="Product"
+                    style={{
+                        width: isMobile ? "7rem" : "8rem",
+                        height: isMobile ? "7rem" : "8rem",
+                        borderRadius: "10px",
+                        objectFit: "cover"
+                    }}
+                />
+            </div>
+            <div className="product-details" style={{ flexGrow: 1 }}>
+                <div className="product-title" style={{ fontSize: '20px', marginBottom: '10px', fontWeight: 'bold' }}>{titledel}</div>
+                <div className="product-price" style={{ marginBottom: '10px', fontSize: '18px', color: '#007bff' }}>{addCommas(props.price * quantityCount)}원</div>
+                <div className="product-quantity" style={{ marginBottom: '10px' }}>
+                    <button onClick={minusButton} style={{ padding: '5px 10px', fontSize: '18px', backgroundColor: '#007bff', color: '#fff', border: 'none', borderRadius: '5px', marginRight: '5px' }}>-</button>
+                    <input type='text' value={quantityCount} style={{ width: '40px', textAlign: 'center', fontSize: '16px', padding: '5px', border: '1px solid #ccc', borderRadius: '5px', margin: '0 5px' }} readOnly />
+                    <button onClick={plusButton} style={{ padding: '5px 10px', fontSize: '18px', backgroundColor: '#007bff', color: '#fff', border: 'none', borderRadius: '5px', marginRight: '5px' }}>+</button>
+                </div>
+            </div>
+            <CloseButton onClick={delCartList} style={{ marginLeft: '20px', cursor: 'pointer' }} />
+        </div>
+    ); 
+이수형 — 2024.05.21. 오전 11:16
+c:\windows\system32
+이수형 — 2024.05.22. 오후 5:54
+https://quz.co.kr/?pid=4&qid=85
+유선웅 — 2024.05.24. 오후 2:56
+https://ittrue.tistory.com/132
+IT is True
+[Java] 자바 다형성(Polymorphism) 개념 정리 및 활용
+다형성 (Polymorphism) 다형성이란 여러 개를 의미하는 poly와 형태 또는 실체를 의미하는 morphism의 결합어로, 하나의 객체가 여러 가지 형태를 가질 수 있는 것을 의미한다. 자바에서 다형성은 한 타입의 참조 변수를 통해 여러 타입의 객체를 참조할 수 있도록 하는 것이다. 즉, 상위 클래스 타입의 참조 변수를 통해서 하위 클래스의 객체를 참조할 수 있도록 허용하여 상위 클래스가 동일한 메시지로 하위 클래스들이 서로 다른 동작을 할 수 있도록 한다. 다형성을 활용하면, 부모 클래스가 자식 클래스의 동작 방식을 알 수 없어도 오버라이딩을 통해 자식 클래스에 접근할 수 있다. 다형성의 장점 유지보수 :...
+[Java] 자바 다형성(Polymorphism) 개념 정리 및 활용
+이수형 — 2024.05.28. 오후 1:06
+package Ex10;
+
+import java.util.Calendar;
+
+public class Ex10_2 {
+
+    public static void main(String[] args) {
+        final String[] DAY_OF_WEEK = { "", "일", "월", "화", "수", "목", "금", "토" };
+
+        Calendar date1 = Calendar.getInstance();
+        Calendar date2 = Calendar.getInstance();
+
+        date1.set(1994, 1, 18);
+        System.out.println("date1은 " + toString(date1) + DAY_OF_WEEK[date1.get(Calendar.DAY_OF_WEEK)] + "요일이고,");
+        System.out.println("오늘(date2)은 " + toString(date2) + DAY_OF_WEEK[date1.get(Calendar.DAY_OF_WEEK)] + "요일입니다.");
+
+        long difference = (date2.getTimeInMillis() - date1.getTimeInMillis()) / 1000;
+        System.out.println("그 날(date1) 부터 지금(date2)까지 " + difference + "초가 지났습니다.");
+        System.out.println("일(day)로 계산하면 " + difference / (24 * 60 * 60) + "일입니다.");
+
+    }
+
+    private static String toString(Calendar date) {
+        return date.get(Calendar.YEAR) + "년 " + (date.get(Calendar.MONTH) + 1) + "월 " + date.get(Calendar.DATE) + "일 ";
+    }
+
+}
+이수형 — 2024.05.29. 오전 11:11
+∩
+∪
+이수형 — 2024.06.05. 오후 12:02
+import java.net.;
+import java.io.;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+
+public class TcpIpServer {
+    public static void main(String args[]) {
+        ServerSocket serverSocket = null;
+
+        try {
+            // 서버소켓을 생성하여 7777번 포트와 결합(bind)시킨다.
+            serverSocket = new ServerSocket(7777);
+            System.out.println(getTime()+"서버가 준비되었습니다.");
+        } catch(IOException e) { e.printStackTrace(); }
+
+        while(true) {
+            try {
+                System.out.println(getTime()+"연결요청을 기다립니다.");
+                // 서버소켓은 클라이언트의 연결요청이 올 때까지 실행을 멈추고 계속 기다린다.
+                // 클라이언트의 연결요청이 오면 클라이언트 소켓과 통신할 새로운 소켓을 생성한다.
+                Socket socket = serverSocket.accept();
+                System.out.println(getTime()+ socket.getInetAddress() 
+                                            + "로부터 연결요청이 들어왔습니다.");
+                // 소켓의 출력스트림을 얻는다.
+                OutputStream out = socket.getOutputStream();
+                DataOutputStream dos = new DataOutputStream(out);
+
+                // 원격 소켓(remote socket)에 데이터를 보낸다.
+                dos.writeUTF("[Notice] Test Message1 from Server.");
+                System.out.println(getTime()+"데이터를 전송했습니다.");
+
+                // 스트림과 소켓을 닫아준다.
+                dos.close();
+                socket.close();
+            } catch (IOException e) { 
+                e.printStackTrace(); 
+            }
+        } // while
+    } // main
+
+    // 현재시간을 문자열로 반환하는 함수
+    static String getTime() {
+        SimpleDateFormat f = new SimpleDateFormat("[hh:mm:ss]");
+        return f.format(new Date());
+    }
+} // class
+이수형 — 2024.06.07. 오후 3:05
+https://lifere.tistory.com/entry/MySQL-8x-버전-root-비밀번호-까먹었을-때-분실했을-때-해결방법#google_vignette
+IT기록 isaac
+MySQL 8.x 버전 root 비밀번호 까먹었을 때, 분실했을 때 해결방법
+MySQL 8.x 버전 root 비밀번호 까먹었을 때, 분실했을 때 해결방법 예전에 MySQL을 Local PC에 설치했는데 한동안 Local MySQL을 사용하지 않다 보니 root 비밀번호를 까먹게 되었다. 다시 사용을 하려고 접속하기 위해 까먹은 root 비밀번호를 찾아야 했다. 구글링을 통해 해결하였고, 해결방법을 기록해보자. 먼저 MySQL 버전에 따라서 root 계정의 분실한 비밀번호를 해결하는 방법이 달랐다. 이 글에서는 MySQL 8.x 버전에 대한 root 비밀번호 초기화 방법을 소개한다. 그리고 사용하는 OS에 따라서 방법이 조금 다를 것이다. 필자는 Windows 10 환경에서 진행했다. MyS...
+MySQL 8.x 버전 root 비밀번호 까먹었을 때, 분실했을 때 해결방법
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'lsh1234';
+이수형 — 2024.06.10. 오후 5:10
+-- 테이블 순서는 관계를 고려하여 한 번에 실행해도 에러가 발생하지 않게 정렬되었습니다.
+
+-- member Table Create SQL
+-- 테이블 생성 SQL - member
+CREATE TABLE member
+(
+확장
+20240610_164949.txt
+2KB
+유선웅 — 2024.06.11. 오후 6:07
+https://gfile.gilbut.co.kr/gilbut/sinagong/SN_IT0201/202307/7201/2023년_2회_정보처리산업기사필기_기출문제.pdf
+이수형 — 2024.06.12. 오전 11:45
+insert into 제품 values ('p01', '그냥만두', 5000, 4500, '대한식품');
+insert into 제품 values ('p02', '매운쫄면', 2500, 5500, '민국푸드');
+insert into 제품 values ('p03', '쿵떡파이', 3600, 2600, '한빛제과');
+insert into 제품 values ('p04', '맛난초콜릿', 1250, 2500, '한빛제과');
+insert into 제품 values ('p05', '얼큰라면', 2200, 1200, '대한식품');
+insert into 제품 values ('p06', '통통우동', 1000, 1550, '민국푸드');
+insert into 제품 values ('p07', '달콤비스킷', 1650, 1500, '한빛제과');
+유선웅 — 2024.06.12. 오전 11:51
+insert into 주문 values ('o01','apple','p03',10,'서울시 마포구','2022-01-01');
+insert into 주문 values ('o02','melon','p01',5,'인천시 계양구','2022-01-10');
+insert into 주문 values ('o03','banana','p06',45,'경기도 부천시','2022-01-11');
+insert into 주문 values ('o04','carrot','p02',8,'부산시 금정구','2022-02-01');
+insert into 주문 values ('o05','melon','p06',36,'경기도 용인시','2022-02-20');
+insert into 주문 values ('o06','banana','p01',19,'충청북도 보은군','2022-03-02');
+insert into 주문 values ('o07','apple','p03',22,'서울시 영등포구','2022-03-15');
+insert into 주문 values ('o08','pear','p02',50,'강원도 춘천시','2022-04-10');
+insert into 주문 values ('o09','banana','p04',15,'전라남도 목포시','2022-04-11');
+insert into 주문 values ('o10','carrot','p03',20,'경기도 안양시','2022-05-22');
+유선웅 — 2024.06.17. 오전 10:10
+192.168.0.104
+유선웅 — 2024.06.17. 오후 2:39
+첨부 파일 형식: archive
+Data_2.zip
+5.51 MB
+이수형 — 오늘 오전 9:51
+%SystemRoot%\system32;
+이수형 — 오늘 오후 12:49
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
+<modelVersion>4.0.0</modelVersion>
+<groupId>com.springbook</groupId>
+<artifactId>biz</artifactId>
+확장
+message.txt
+6KB
+﻿
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.springbook</groupId>
+	<artifactId>biz</artifactId>
+	<name>BoardWeb</name>
+	<packaging>war</packaging>
+	<version>1.0.0-BUILD-SNAPSHOT</version>
+	<properties>
+		<java-version>1.6</java-version>
+		<org.springframework-version>5.3.9</org.springframework-version>
+		<org.aspectj-version>1.6.10</org.aspectj-version>
+		<org.slf4j-version>1.6.6</org.slf4j-version>
+	</properties>
+	<dependencies>
+		<!-- Spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${org.springframework-version}</version>
+			<exclusions>
+				<!-- Exclude Commons Logging in favor of SLF4j -->
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				 </exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+				
+		<!-- AspectJ -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>${org.aspectj-version}</version>
+		</dependency>	
+		
+		<!-- Logging -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${org.slf4j-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${org.slf4j-version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${org.slf4j-version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+		
+		     <!-- 
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.15</version>
+			 -->
+			 <groupId>org.apache.logging.log4j</groupId>
+			 <artifactId>log4j-core</artifactId>
+			 <version>2.12.1</version>
+			 
+			<exclusions>
+				<exclusion>
+					<groupId>javax.mail</groupId>
+					<artifactId>mail</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.jms</groupId>
+					<artifactId>jms</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jdmk</groupId>
+					<artifactId>jmxtools</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jmx</groupId>
+					<artifactId>jmxri</artifactId>
+				</exclusion>
+			</exclusions>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- @Inject -->
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>1</version>
+		</dependency>
+				
+		<!-- Servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>2.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+	
+		<!-- Test -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.7</version>
+			<scope>test</scope>
+		</dependency>        
+	</dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-eclipse-plugin</artifactId>
+                <version>2.9</version>
+                <configuration>
+                    <additionalProjectnatures>
+                        <projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
+                    </additionalProjectnatures>
+                    <additionalBuildcommands>
+                        <buildcommand>org.springframework.ide.eclipse.core.springbuilder</buildcommand>
+                    </additionalBuildcommands>
+                    <downloadSources>true</downloadSources>
+                    <downloadJavadocs>true</downloadJavadocs>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.5.1</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <compilerArgument>-Xlint:all</compilerArgument>
+                    <showWarnings>true</showWarnings>
+                    <showDeprecation>true</showDeprecation>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                <configuration>
+                    <mainClass>org.test.int1.Main</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+message.txt
+6KB
